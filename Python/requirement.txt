@@ -1,0 +1,3 @@
+flask sqlalchemy
+sycopg2
+psycopg2-binary
