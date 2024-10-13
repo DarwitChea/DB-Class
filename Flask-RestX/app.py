@@ -1,0 +1,27 @@
+import json
+from flask import Flask, request
+from flask_restx import Resource,Api
+
+app = Flask(__name__)
+api = Api(app)
+
+
+todos = {}
+
+@api.route('/<string:todo_id>','/tasks/<string:todo_id>')
+class TodoSimple(Resource):
+    
+    def put(self, todo_id):
+        todos[todo_id] = request.form['data']
+        return {todo_id: todos[todo_id]}
+    
+    def get(self, todo_id):
+        return todos if todo_id=='0' else {todo_id: todos[todo_id]}
+
+@api.route('/hello')
+class HelloWorld(Resource):
+    def get(self):
+        return {'hello': 'world'}
+
+if __name__ == '__main__':
+    app.run(debug=True)

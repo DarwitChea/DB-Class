@@ -1,0 +1,7 @@
+Flask==2.3.3 
+flask-sqlalchemy
+psycopg2
+psycopg2-binary
+mysqlclient
+mysql-connector-python
+flask-restx
